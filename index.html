@@ -18,10 +18,10 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
-
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
     <!-- Plugin CSS -->
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
-
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/creative.css" type="text/css">
 
@@ -82,13 +82,88 @@
                 <h1>Bulk Hiring – Simplified</h1>
                 <h style="color=white">
                 <p>Connecting employers & manpower providers</p>
+                
+                <style type="text/css">
+                    .stats{
+                        /*color: white;
+                        right: -60px;
+                        font-size: 36px;
+                        font-family: 'Open Sans', sans-serif;
+                        font-weight: 500;
+                        position: relative;
+                        display: inline-block;
+                        margin-bottom: 0px;*/
+                        color: #18BC9C;
+                        font-size: 32px;
+                    }
+                    header .header-content .header-content-inner hr{
+                        color: white;
+                        
+                    }
+                </style>
+                
+                <br>
                 <a href="http://my.mhire.in/users/sign_up" class="btn btn-primary btn-xl page-scroll">Sign Up to use dashboard</a>
             </div>
+
+            
+
+            <script type="text/javascript">
+                $(document).ready(function(){
+                    $.get("http://my.mhire.in/api/v1/metrics.json", function(data, status){
+
+                            var value = data.commission_value; 
+                            lakh = value.toString().substring(0,2);
+                            thou = value.toString().substring(2,4);
+                            hund = value.toString().substring(4,7);
+                            value =  lakh + ',' + thou + ',' + hund; 
+                            
+                            
+                            
+                            $('#vacancies').html(data.vacancies);
+                            $('#commission').append(value);
+                            $('#vendors').html(data.vendors);
+                        });
+                });
+            </script>
         </div>
     </header>
 
-    <section class="bg-primary" id="about">
+    <section id="services" style="padding-top: 10px; padding-bottom: 10px;">
         <div class="container">
+            <div class="row">
+    
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <strong id="vacancies" class="stats wow bounceIn text-primary" data-wow-delay=".1s"></strong>
+                        <h3>Open Vacancies</h3>
+                        <br>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                       <strong id="vendors" class="stats wow bounceIn text-primary" data-wow-delay=".2s"></strong>
+                       <h3 >Listed Vendors</h3>
+                       <br> 
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 text-center">
+                    <div class="service-box">
+                        <strong id="commission" class="stats wow bounceIn text-primary" data-wow-delay=".3s"> &#8377;</strong>
+                        <h3>Commission Available</h2>
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </section>
+    <section class="bg-primary" id="about">
+
+        <div class="container">
+            
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">It’s simple, fast & free!</h2>
