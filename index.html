@@ -112,18 +112,34 @@
                 $(document).ready(function(){
                     $.get("http://my.mhire.in/api/v1/metrics.json", function(data, status){
 
-                            var value = data.commission_value; 
-                            lakh = value.toString().substring(0,2);
-                            thou = value.toString().substring(2,4);
-                            hund = value.toString().substring(4,7);
-                            value =  lakh + ',' + thou + ',' + hund; 
-                            
-                            
-                            
-                            $('#vacancies').html(data.vacancies);
-                            $('#commission').append(value);
-                            $('#vendors').html(data.vendors);
-                        });
+                                var value = data.commission_value; 
+                                lakh = value.toString().substring(0,2);
+                                thou = value.toString().substring(2,4);
+                                hund = value.toString().substring(4,7);
+                                value = lakh + ',' + thou + ',' + hund; 
+                                
+                                
+                                
+                                $('#vacancies').html(data.vacancies);
+                                $('#commission').html("<strong>&#8377</strong>" + value);
+                                $('#vendors').html(data.vendors);
+                            });
+                    var timer = setInterval(function(){
+                        $.get("http://my.mhire.in/api/v1/metrics.json", function(data, status){
+
+                                var value = data.commission_value; 
+                                lakh = value.toString().substring(0,2);
+                                thou = value.toString().substring(2,4);
+                                hund = value.toString().substring(4,7);
+                                value = lakh + ',' + thou + ',' + hund; 
+                                
+                                
+                                
+                                $('#vacancies').html(data.vacancies);
+                                $('#commission').html("<strong>&#8377</strong>" + value);
+                                $('#vendors').html(data.vendors);
+                            });
+                    }, 4000);
                 });
             </script>
         </div>
@@ -151,7 +167,7 @@
 
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
-                        <strong id="commission" class="stats wow bounceIn text-primary" data-wow-delay=".3s"> &#8377;</strong>
+                        <strong id="commission" class="stats wow bounceIn text-primary" data-wow-delay=".3s"></strong>
                         <h3>Commission Available</h2>
                     </div>
                 </div>
