@@ -113,13 +113,8 @@
                     $.get("http://my.mhire.in/api/v1/metrics.json", function(data, status){
 
                                 var value = data.commission_value; 
-                                lakh = value.toString().substring(0,2);
-                                thou = value.toString().substring(2,4);
-                                hund = value.toString().substring(4,7);
-                                value = lakh + ',' + thou + ',' + hund; 
                                 
-                                
-                                
+                
                                 $('#vacancies').html(data.vacancies);
                                 $('#commission').html("<strong>&#8377</strong>" + value);
                                 $('#vendors').html(data.vendors);
@@ -128,9 +123,6 @@
                         $.get("http://my.mhire.in/api/v1/metrics.json", function(data, status){
 
                                 var value = data.commission_value; 
-                                lakh = value.toString().substring(0,2);
-                                thou = value.toString().substring(2,4);
-                                hund = value.toString().substring(4,7);
                                 value = lakh + ',' + thou + ',' + hund; 
                                 
                                 
