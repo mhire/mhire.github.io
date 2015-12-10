@@ -3,7 +3,13 @@
  * Code licensed under the Apache License v2.0.
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
-
+      $("#clients .slider").owlCarousel({
+        navigation: true,
+        pagination: false,
+        autoPlay: 5000, //Set AutoPlay to 3 seconds 
+        items: 5,
+      });
+      
 (function($) {
     "use strict"; // Start of use strict
 
