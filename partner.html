@@ -67,11 +67,17 @@
 			<div id="search_wrapper">
 				<div id="search_form" class="clearfix">
 					<h1>Grow your business.</h1>
-					<p>
+					<!-- <p>
 						<input type="text" class="text" placeholder=" " value="Enter Keyword(s)" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter Keyword(s)';}">
 						<input type="text" class="text" placeholder=" " value="Location" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Location';}">
 						<label class="btn2 btn-2 "><input type="submit" value="Find Jobs"></label>
-					</p>
+					</p> -->
+					<div id="city_1" class="clearfix">
+						<div class=" register-btn">
+							<a href="">Register</a><br>
+						</div>
+
+					</div>
 					<h2 class="title">Choose from over 15,000 job openings</h2>
 				</div>
 				<div id="city_1" class="clearfix">
@@ -295,31 +301,31 @@
 				</div>
 			</div>
 			<script type="text/javascript">
-                $(document).ready(function(){
-                    $.get("http://my.mhire.in/api/v1/metrics.json", function(data, status){
+			$(document).ready(function(){
+				$.get("http://my.mhire.in/api/v1/metrics.json", function(data, status){
 
-                                var value = data.commission_value; 
-                                
-                
-                                $('#vacancies').html(data.vacancies);
-                                $('#commission').html("<strong>&#8377</strong>" + value);
-                                $('#vendors').html(data.vendors);
-                            });
-                    var timer = setInterval(function(){
-                        $.get("http://my.mhire.in/api/v1/metrics.json", function(data, status){
+					var value = data.commission_value; 
+					
+					
+					$('#vacancies').html(data.vacancies);
+					$('#commission').html("<strong>&#8377</strong>" + value);
+					$('#vendors').html(data.vendors);
+				});
+				var timer = setInterval(function(){
+					$.get("http://my.mhire.in/api/v1/metrics.json", function(data, status){
 
-                                var value = data.commission_value; 
-                                value = lakh + ',' + thou + ',' + hund; 
-                                
-                                
-                                
-                                $('#vacancies').html(data.vacancies);
-                                $('#commission').html("<strong>&#8377</strong>" + value);
-                                $('#vendors').html(data.vendors);
-                            });
-                    }, 4000);
-                });
-            </script>
+						var value = data.commission_value; 
+						value = lakh + ',' + thou + ',' + hund; 
+						
+						
+						
+						$('#vacancies').html(data.vacancies);
+						$('#commission').html("<strong>&#8377</strong>" + value);
+						$('#vendors').html(data.vendors);
+					});
+				}, 4000);
+			});
+			</script>
 			<!-- live tracker ends -->
 
 			<br><br>
@@ -436,32 +442,32 @@
 $(function() { $.smartbanner() } )
 </script>
 <script type="text/javascript">
-				$(window).load(function() {
-					$("#flexiselDemo3").flexisel({
-						visibleItems: 6,
-						animationSpeed: 1000,
-						autoPlay:true,
-						autoPlaySpeed: 3000,    		
-						pauseOnHover: true,
-						enableResponsiveBreakpoints: true,
-						responsiveBreakpoints: { 
-							portrait: { 
-								changePoint:480,
-								visibleItems: 1
-							}, 
-							landscape: { 
-								changePoint:640,
-								visibleItems: 2
-							},
-							tablet: { 
-								changePoint:768,
-								visibleItems: 3
-							}
-						}
-					});
+$(window).load(function() {
+	$("#flexiselDemo3").flexisel({
+		visibleItems: 6,
+		animationSpeed: 1000,
+		autoPlay:true,
+		autoPlaySpeed: 3000,    		
+		pauseOnHover: true,
+		enableResponsiveBreakpoints: true,
+		responsiveBreakpoints: { 
+			portrait: { 
+				changePoint:480,
+				visibleItems: 1
+			}, 
+			landscape: { 
+				changePoint:640,
+				visibleItems: 2
+			},
+			tablet: { 
+				changePoint:768,
+				visibleItems: 3
+			}
+		}
+	});
 
-				});
-				</script>
-				<script type="text/javascript" src="js/jquery.flexisel.js"></script>
+});
+</script>
+<script type="text/javascript" src="js/jquery.flexisel.js"></script>
 </body>
 </html>	
